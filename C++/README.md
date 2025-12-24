@@ -41,38 +41,39 @@ CPU/
 ## Usage
 
 ### Compilation
-Before compiling, make sure you are in the directory /CPU/. And create a directory /result/ to save the running results of different algorithms.
+Before compiling, make sure you are in the directory /CPU/. And create the directories: ./records_CAIDA16/, ./records_CAIDA19/, ./records_MAWI24/, ./records_MAWI25/ to save the running results of different algorithms under four real-world datasets.
 ```bash
-$ mkdir result/
+$ mkdir ./records_CAIDA16/
+$ mkdir ./records_CAIDA19/
+$ mkdir ./records_MAWI24/
+$ mkdir ./records_MAWI25/
 ```
 
-If you want to compile MIME and other algorithms using CMake, the following commands should be executed.
+If you want to compile PSS-Sketch and other algorithms using CMake, the following commands should be executed.
 ```bash
 $ mkdir build
 $ cd build
 $ cmake ..
 $ make
 $ cd ..
-$ ./MIME
 ```
 
-If you want to compile MIME and other algorithms using g++, the followding commands should be execueted.
-Note that, the xxx.sh is a bash shell file including g++ compile codes with optimize_flag $-O3$.
+And then, please running the scripts provided in the directory ./scripts/. The following commands should be executed.
 ```shell
-$ chmod u+x ./scripts/MIME.sh
-$ ./scripts/MIME.sh  # MIME
-$ chmod u+x ./scripts/CSE.sh
-$ ./scripts/CSE.sh   # CSE
-$ chmod u+x ./scripts/vHLL.sh
-$ ./scripts/vHLL.sh  # vHLL
-$ chmod u+x ./scripts/rSkt.sh
-$ ./scripts/rSkt.sh  # rSkt
-$ chmod u+x ./scripts/Supersketch.sh
-$ ./scripts/Supersketch.sh  # supersketch
-$ chmod u+x ./scripts/BF_TCM.sh
-$ ./scripts/BF_TCM.sh #BF+TCM
-$ chmod u+x ./scripts/BF_GSS.sh
-$ ./scripts/BF_GSS.sh #BF+GSS
+$ chmod u+x ./scripts/params.sh
+$ ./scripts/params.sh  # for testing the parameter tunning experiments
+$ chmod u+x ./scripts/run_caida16.sh
+$ ./scripts/run_caida16.sh   # for testing the accuracy experiments under CAIDA-16
+$ chmod u+x ./scripts/run_caida19.sh
+$ ./scripts/run_caida19.sh   # for testing the accuracy experiments under CAIDA-19
+$ chmod u+x ./scripts/run_mawi24.sh
+$ ./scripts/run_mawi24.sh    # for testing the accuracy experiments under MAWI-24
+$ chmod u+x ./scripts/run_mawi25.sh
+$ ./scripts/run_mawi25.sh    # for testing the accuracy experiments under MAWI-25
+$ chmod u+x ./scripts/run_threshold_card.sh
+$ ./scripts/run_threshold_card.sh # for testing the experiments under different cardinality thresholds
+$ chmod u+x ./scripts/run_threshold_k.sh
+$ ./scripts/run_threshold_k.sh # for testing the experiments under different persistence thresholds
 ```
 
 ## Requirements
@@ -80,12 +81,3 @@ $ ./scripts/BF_GSS.sh #BF+GSS
 - CMake 3.10 or above
 - g++ 7.5.0 or above
 - Compiler with support for C++17 standard
-
-## Acknowledgement
-Other baseline methods are implemented based on following papers:
-- **CSE**: M. Yoon, T. Li, S. Chen, J. . -K. Peir. "Fit a Spread Estimator in Small Memory". Proc. of IEEE INFOCOM, 2009.
-- **vHLL**: Qingjun Xiao, Shigang Chen, You Zhou, Min Chen, Junzhou Luo, Tengli Li, Yibei Ling. "Cardinality Estimation for Elephant Flows: A Compact Solution Based on Virtual Register Sharing". IEEE/ACM Transactions on Networking, 25(6): 3738-3752 (2017).
-- **rSkt**: Haibo Wang, Chaoyi Ma, Olufemi O. Odegbile, Shigang Chen, Jih-Kwon Peir. "Randomized Error Removal for Online Spread Estimation in High-Speed Networks". IEEE/ACM Transactions on Networking, 31(2): 558-573 (2023).
-- **Supersketch**([Source Code](https://github.com/JasonXYJing/The-source-code-of/SuperSketch)): Xuyang Jing, Hui Han, Zheng Yan, Witold Pedrycz. "SuperSketch: A Multi-Dimensional Reversible Data Structure for Super Host Identification". IEEE Transactions on Dependable and Secure Computing, 19(4): 2741-2754 (2022).
-- **TCM**([Source Code](https://github.com/Puppy95/Graph-Stream-Sketch/tree/master)): Xiangyang Gou, Lei Zou, Chenxingyu Zhao, Tong Yang. "Graph Stream Sketch: Summarizing Graph Streams With High Speed and Accuracy". IEEE Transactions on Knowledge and Data Engineering, 35(6): 5901-5914 (2023).
-- **GSS**([Source Code](https://github.com/Puppy95/Graph-Stream-Sketch/tree/master)): Xiangyang Gou, Lei Zou, Chenxingyu Zhao, Tong Yang. "Graph Stream Sketch: Summarizing Graph Streams With High Speed and Accuracy". IEEE Transactions on Knowledge and Data Engineering, 35(6): 5901-5914 (2023).
