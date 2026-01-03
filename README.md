@@ -1,4 +1,4 @@
-# PSS-Sketch: A Memory-efficient Sketch Framework for Persistent Super-spreader Detection in High-speed Data Streams
+# PSS-Sketch
 
 This is the repository for source codes of PSS-Sketch.
 
