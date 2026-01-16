@@ -1,6 +1,6 @@
 # PSS-Sketch
 
-This is the repository for source codes of PSS-Sketch.
+This is the repository for source codes of PSS-Sketch (submitted to VLDB 2026).
 
 ## About this repo
 
